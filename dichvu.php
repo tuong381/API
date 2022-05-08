@@ -18,7 +18,7 @@ class DichVu{
         $this->TenDichVu= $_name;
         $this->HinhAnh_DV = $_image;
         // $this->id_NhanVien=$_id_NV;
-        $this->Gia-$_price;
+        $this->Gia=$_price;
     }
 }
 $sql = "SELECT * FROM dichvu";

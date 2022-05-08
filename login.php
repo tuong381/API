@@ -124,10 +124,10 @@ if(mysqli_num_rows($result)==1){
   $token["SoDienThoai"]=$u["SoDienThoai"];
    $token["HinhAnh"]=$u["HinhAnh"];
    $token["DiaChi"]=$u["DiaChi"];
-  // $token["GioiTinh"]=$u["GioiTinh"];
-  // $token["ChieuCao"]=$u["ChieuCao"];
-  // $token["CanNang"]=$u["CanNang"];
-  // $token["NgaySinh"]=$u["NgaySinh"];
+  $token["GioiTinh"]=$u["GioiTinh"];
+  $token["ChieuCao"]=$u["ChieuCao"];
+  $token["CanNang"]=$u["CanNang"];
+  $token["NgaySinh"]=$u["NgaySinh"];
   
   
 
