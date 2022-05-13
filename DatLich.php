@@ -39,8 +39,11 @@ if(mysqli_num_rows($result)==1){
     $id= mysqli_insert_id($connect);
 
 
-    $sql1= "INSERT INTO hoadon (id_HD,id_KhachHang, id_SanPham, TenSanPham, TenVe, id_LichHen, TongHoaDon, Ngay, TrangThaiHoaDon) 
-        VALUE (null,'$id_KhachHang',null,null,'$TenVe','$id','$TongTien', null, '0')";
+    // $sql1= "INSERT INTO hoadon (id_HD,id_KhachHang, id_SanPham, TenSanPham, TenVe, id_LichHen, TongHoaDon, Ngay, TrangThaiHoaDon, created_at) 
+    //     VALUE (null,'$id_KhachHang',null,null,'$TenVe','$id','$TongTien', null, '0', null)";
+
+    $sql1= "INSERT INTO hoadon (id_HD,id_KhachHang, id_SanPham, id_LichHen, TenSanPham, TenVe, TongHoaDon, Ngay, TrangThaiHoaDon, created_at) 
+                        VALUE (null,'$id_KhachHang',null,'$id',null,'$TenVe','$TongTien', null, '0',null)";
     $result1 = $connect->query($sql1);
    
     
