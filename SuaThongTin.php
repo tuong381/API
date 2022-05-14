@@ -14,6 +14,7 @@ $ChieuCao= $obj["ChieuCao"];
 $Email= $obj["Email"];
 
 $HinhAnh= $obj['HinhAnh'];
+$NgaySinh =$obj['NgaySinh'];
 
 
 $connect= mysqli_connect('127.0.0.1','root','','quanlyphonggym');
@@ -25,7 +26,7 @@ if (!$connect) {
   
     $sql="UPDATE khachhang
             SET TenKH='$TenKH', SoDienThoai='$SoDienThoai', CanNang='$CanNang', Email='$Email',
-                DiaChi='$DiaChi', GioiTinh='$GioiTinh', ChieuCao='$ChieuCao', HinhAnh='$HinhAnh'
+                DiaChi='$DiaChi', GioiTinh='$GioiTinh', ChieuCao='$ChieuCao', HinhAnh='$HinhAnh', NgaySinh='$NgaySinh'
             WHERE id_KhachHang='$id_KhachHang'";
 
   //  $sql="SELECT * FROM khachhang WHERE id_KhachHang='$id_KhachHang'";

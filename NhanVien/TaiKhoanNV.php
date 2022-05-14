@@ -25,9 +25,9 @@ class DichVu{
      var $GioiTinh;
      var $KinhNghiem;
      var $MatKhau;
-    //  var $NgaySinh;
+      var $NgaySinh;
     // $_id, $_name, $_email,$_sodienthoai,$_diachi
-    function DichVu($_id, $_name, $_email, $_sodienthoai, $_diachi,  $_image, $_gioitinh, $_kinhnghiem, $_matkhau){
+    function DichVu($_id, $_name, $_email, $_sodienthoai, $_diachi,  $_image, $_gioitinh, $_kinhnghiem, $_matkhau, $_ngay){
        
         $this->id_NhanVien= $_id;
         $this->TenNV= $_name;
@@ -38,6 +38,7 @@ class DichVu{
        $this->GioiTinh= $_gioitinh;
        $this->MatKhau= $_matkhau;
        $this->KinhNghiem= $_kinhnghiem;
+       $this->NgaySinh= $_ngay;
         // id_NhanVien, TenNV, Email, SoDienThoai, DiaChi
     }
 }
@@ -50,7 +51,7 @@ while($row = mysqli_fetch_array($result)) {
 
  // array_push($arrDichVu, new DichVu($row["id_DichVu"]));
 array_push($arrDichVu1, new DichVu($row["id_NhanVien"],$row["TenNV"], $row["Email"], $row["SoDienThoai"],
-     $row["DiaChi"], $row["AnhDaiDien"],$row["GioiTinh"],$row["KinhNghiem"],$row["MatKhau"]));
+     $row["DiaChi"], $row["AnhDaiDien"],$row["GioiTinh"],$row["KinhNghiem"],$row["MatKhau"], $row["NgaySinh"]));
 
 //array_push($arrDichVu1, new DichVu($row["id_NhanVien"], $row["TenNV"], $row["Email"], $row["SoDienThoai"], $row["DiaChi"]));
 }

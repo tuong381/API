@@ -59,7 +59,7 @@ class DichVu{
         $this->CanNang= $_cannang;
         $this->ChieuCao =$_chieucao;
         $this-> GioiTinh = $_gioitinh;
-        $this->NgaySinh = $_ngaysinh;
+        $this->NgaySinh = $_ngaysinh; 
         // id_NhanVien, TenNV, Email, SoDienThoai, DiaChi
     }
 }
@@ -69,6 +69,7 @@ $sql = "SELECT a.id_LichHen, b.TenKH, b.SoDienThoai, a.TongTien, a.NgayDK, a.Gio
              b.Email, b.DiaChi, b.CanNang, b.ChieuCao, b.GioiTinh, b.NgaySinh
         FROM lichhen a, khachhang b , dichvu c
         WHERE a.id_KhachHang=b.id_KhachHang AND a.id_DichVu=c.id_DichVu AND id_NhanVien='$a'
+        GROUP BY a.id_KhachHang 
         ORDER BY a.id_LichHen DESC ";
 $result = $connect->query($sql);
 // if ($result->num_rows > 0) {
