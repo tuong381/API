@@ -61,6 +61,10 @@ if(mysqli_num_rows($result)!==0){
     $result = $connect->query($sql);
     $id= mysqli_insert_id($connect);
 
+    // $sql= "INSERT INTO chat (id_Chat,id_NhanVien, id_KhachHang, TrangThai, created_at) VALUE (null,'$id_NhanVien','$id_KhachHang', '-1', null) ";
+    // $result = $connect->query($sql);
+    // $id= mysqli_insert_id($connect);
+
 
    
     
