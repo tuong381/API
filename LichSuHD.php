@@ -27,8 +27,10 @@ class DichVu{
     var $NgayDK;
     var $AnhDaiDien;
     var $TrangThaiLichHen;
+
+    var $TrangThaiHoaDon;
     // $_id, $_name, $_email,$_sodienthoai,$_diachi
-    function DichVu($_idHD, $_gia, $_tenve, $_gio, $_tenNV, $_ngay, $_anh, $_state){
+    function DichVu($_idHD, $_gia, $_tenve, $_gio, $_tenNV, $_ngay, $_anh, $_state, $_stateHD){
        
         $this->id_HD= $_idHD;
         
@@ -39,11 +41,12 @@ class DichVu{
         $this->NgayDK= $_ngay;
         $this->AnhDaiDien= $_anh;
         $this->TrangThaiLichHen= $_state;
+        $this->TrangThaiHoaDon= $_stateHD;
 
         // id_NhanVien, TenNV, Email, SoDienThoai, DiaChi
     }
 }
-$sql = "SELECT a.id_HD,  a.TongHoaDon, a.TenVe, b.GioDK, c.TenNV, b.NgayDK, c.AnhDaiDien, b.TrangThaiLichHen
+$sql = "SELECT a.id_HD,  a.TongHoaDon, a.TenVe, b.GioDK, c.TenNV, b.NgayDK, c.AnhDaiDien, b.TrangThaiLichHen, a.TrangThaiHoaDon
         FROM hoadon a , lichhen b, nhanvien c
         WHERE a.id_LichHen=b.id_LichHen AND b.id_NhanVien=c.id_NhanVien AND  a.id_KhachHang='$a'
          ORDER BY a.id_HD DESC"
@@ -56,7 +59,7 @@ $result = $connect->query($sql);
 while($row = mysqli_fetch_array($result)) {
 
 array_push($arrDichVu1, new DichVu($row["id_HD"],  $row["TongHoaDon"], $row["TenVe"], $row["GioDK"]
-            , $row["TenNV"], $row["NgayDK"], $row["AnhDaiDien"], $row["TrangThaiLichHen"]));
+            , $row["TenNV"], $row["NgayDK"], $row["AnhDaiDien"], $row["TrangThaiLichHen"], $row["TrangThaiHoaDon"]));
 }
 echo json_encode($arrDichVu1);
 //$connect->close();

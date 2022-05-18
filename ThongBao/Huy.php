@@ -14,7 +14,7 @@ if (!$connect) {
 }
  
     $sql="UPDATE thongbao a, lichhen b
-            SET a.TrangThai='-4', b.TrangThaiLichHen='-1'
+            SET a.TrangThai='-4', b.TrangThaiLichHen='-1', a.TieuDe='yêu cầu hủy lịch'
             WHERE a.id_ThongBao='$id_ThongBao' And a.id_LichHen=b.id_LichHen";
 
   //  $sql="SELECT * FROM khachhang WHERE id_KhachHang='$id_KhachHang'";
