@@ -27,7 +27,7 @@ if (!$connect) {
     exit('Kết nối không thành công!');
 }
 
-$dk="SELECT id_NhanVien, NgayDk, GioDK FROM lichhen where id_NhanVien='$id_NhanVien' AND NgayDK='$NgayDK' AnD GioDK='$GioDK'";
+$dk="SELECT id_NhanVien, NgayDk, GioDK FROM lichhen where id_NhanVien='$id_NhanVien' AND NgayDK='$NgayDK' AnD GioDK='$GioDK' AND TrangThaiLichHen!='-1' ";
 $result = $connect->query($dk);
 if(mysqli_num_rows($result)==1){
     $id=0;

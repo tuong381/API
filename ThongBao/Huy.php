@@ -6,6 +6,8 @@ $obj=json_decode($json, TRUE);
 
 $id_ThongBao = $obj["id_ThongBao"];
 
+$id_LichHen = $obj["id_LichHen"];
+
 
 $connect= mysqli_connect('127.0.0.1','root','','quanlyphonggym');
 
@@ -19,6 +21,11 @@ if (!$connect) {
 
   //  $sql="SELECT * FROM khachhang WHERE id_KhachHang='$id_KhachHang'";
     $result = $connect->query($sql);
+
+    $sql1=" UPDATE hoadon SET TrangThaiHoaDon='-1' WHERE id_LichHen='$id_LichHen'";
+
+    $result1 = $connect->query($sql1);
+
 
     if (mysqli_query($connect, $sql)) {
         // echo "Succuss";

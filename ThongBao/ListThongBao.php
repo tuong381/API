@@ -30,8 +30,9 @@ class ThongBao{
     var $created_at;
     var $HinhAnh;
     var $AnhDaiDien;
+    var $id_LichHen;
     // $_id, $_name, $_email,$_sodienthoai,$_diachi
-    function ThongBao($_id, $_tieude, $_tenNV, $_tenKH, $_ngayDK, $_gio, $_trangthai ,$_created, $_anhKH, $_anhNV){
+    function ThongBao($_id, $_tieude, $_tenNV, $_tenKH, $_ngayDK, $_gio, $_trangthai ,$_created, $_anhKH, $_anhNV, $_idLH){
       
         $this->id_ThongBao=$_id;
         $this->TieuDe = $_tieude;
@@ -43,11 +44,13 @@ class ThongBao{
         $this->created_at= $_created;
         $this->HinhAnh = $_anhKH;
         $this->AnhDaiDien= $_anhNV;
+
+        $this->id_LichHen= $_idLH;
         // id_NhanVien, TenNV, Email, SoDienThoai, DiaChi
     }
 }
 
-$sql = "SELECT d.id_ThongBao, d.TieuDe, b.TenNV, c.TenKH, a.NgayDK, a.GioDK, d.TrangThai, d.created_at, c.HinhAnh, b.AnhDaiDien
+$sql = "SELECT d.id_ThongBao, d.TieuDe, b.TenNV, c.TenKH, a.NgayDK, a.GioDK, d.TrangThai, d.created_at, c.HinhAnh, b.AnhDaiDien, a.id_LichHen
         FROM lichhen a, nhanvien b , khachhang c, thongbao d
         WHERE d.id_LichHen=a.id_LichHen AND d.id_NhanVien=b.id_NhanVien AND d.id_KhachHang= c.id_KhachHang AND d.id_KhachHang='$a'
         ORDER BY d.id_ThongBao DESC ";
@@ -58,7 +61,7 @@ while($row = mysqli_fetch_array($result)) {
 
 
 array_push($arrThongBao, new ThongBao( $row["id_ThongBao"],$row["TieuDe"], $row["TenNV"],
-        $row["TenKH"], $row["NgayDK"], $row["GioDK"],$row["TrangThai"], $row["created_at"], $row["HinhAnh"], $row["AnhDaiDien"] ));
+        $row["TenKH"], $row["NgayDK"], $row["GioDK"],$row["TrangThai"], $row["created_at"], $row["HinhAnh"], $row["AnhDaiDien"], $row["id_LichHen"] ));
 
 }
 echo json_encode($arrThongBao);
