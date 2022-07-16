@@ -13,7 +13,7 @@ $connect= mysqli_connect('127.0.0.1','root','','quanlyphonggym');
 if (!$connect) {
     exit('Kết nối không thành công!');
 }
- 
+  
     $sql="UPDATE thongbao a, lichhen b
             SET a.TrangThai='-3', b.TrangThaiLichHen='-1'
             WHERE a.id_ThongBao='$id_ThongBao' And a.id_LichHen=b.id_LichHen";
